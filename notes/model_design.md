@@ -152,6 +152,34 @@ breakout signals from 中国科学技术大学 RoboWalker and 南京航空航天
 The next model iteration should add a current-season momentum/upgrade feature
 instead of only widening generic upset risk.
 
+## 2025 East Regional Backtest
+
+The third strict pre-event backtest uses 2025 East regional matches as labels
+and only features available by `2025-05-26`, before the East event window.
+
+- Test labels: 91 decisive East regional matches extracted from the same
+  2015-2025 community result sheet.
+- Label source date: 2025-06-05, used only as post-event ground truth.
+- Feature cutoff: 2025-05-26.
+- Allowed features: 2023-2024 official historical results, 2023-2024 technical
+  awards, 2023-2025 pre-event complete-form/initial-gold signals.
+- Excluded features: all 2025 regional match results, 2025 regional awards,
+  2025 national awards, and 2025 post-season technical awards.
+
+Backtest result:
+
+- Full coverage accuracy: `0.681319`.
+- Top-confidence 20% accuracy: `0.894737`.
+- Brier score: `0.211050`.
+- Log loss: `0.607327`.
+- High-confidence error rate: `0.266667`.
+
+Interpretation: East is similar to Central on full-field accuracy but still
+clears the 80% target on the declared highest-confidence subset. Main misses
+include 东华大学 DIODE over 宁波工程学院 New Legends and 东北大学 TDT over 同济大学
+SuperPower, so the model still overweights some historical/technical priors
+when a regional team is breaking out in the current season.
+
 ## 2026 Region Prediction V2
 
 The 2025 South backtest showed that the raw prior was too confident on some

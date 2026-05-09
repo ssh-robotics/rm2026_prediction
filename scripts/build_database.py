@@ -42,6 +42,10 @@ OPTIONAL_TABLES = [
     "team_strength_ratings_2025_central",
     "model_predictions_2025_central",
     "model_backtests_2025_central",
+    "match_results_2025_east",
+    "team_strength_ratings_2025_east",
+    "model_predictions_2025_east",
+    "model_backtests_2025_east",
 ]
 
 

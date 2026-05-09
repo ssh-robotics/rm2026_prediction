@@ -25,7 +25,7 @@ python3 scripts/build_database.py
 Run integrity checks:
 
 ```bash
-python3 -m unittest tests.test_database_integrity tests.test_2025_south_backtest tests.test_2025_central_backtest tests.test_2026_region_prediction tests.test_rmul_data_integration
+python3 -m unittest tests.test_database_integrity tests.test_2025_south_backtest tests.test_2025_central_backtest tests.test_2025_east_backtest tests.test_2026_region_prediction tests.test_rmul_data_integration
 ```
 
 Main database:
@@ -47,6 +47,8 @@ Key modeling notes are in `notes/model_design.md`. Match-level backtest reports:
   `2025-05-15` feature cutoff.
 - `reports/2025_central_backtest.md`: 88 Central regional labels with strict
   `2025-05-20` feature cutoff.
+- `reports/2025_east_backtest.md`: 91 East regional labels with strict
+  `2025-05-26` feature cutoff.
 
 The first 2026 region forecast is `reports/2026_south_region_prediction.md`.
 It uses the calibrated v2 model and writes `data/region_predictions_2026.csv`.

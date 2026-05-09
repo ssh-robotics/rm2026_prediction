@@ -52,6 +52,15 @@ REGION_CONFIGS = {
         split_name="2025_central_regional_pre_event_cutoff",
         markers=("中国科学技术大学", "RoboWalker", "西北工业大学", "冠军争夺战"),
     ),
+    "东部赛区": RegionConfig(
+        region="东部赛区",
+        slug="east",
+        feature_cutoff="2025-05-26",
+        model_run_id="rmuc_2025_east_pre_event_v1",
+        backtest_id="backtest_2025_east_pre_event",
+        split_name="2025_east_regional_pre_event_cutoff",
+        markers=("北京理工大学", "凌BUG", "同济大学", "冠军争夺战"),
+    ),
 }
 
 
@@ -175,7 +184,7 @@ def render_report(
         "",
         "- 标签来自赛后逐场比分表，只用于回测判定。",
         "- 特征只使用 2023-2024 历史结果、2025 赛前完整形态/初始金币信号、2025 前技术奖项。",
-        "- 不使用 2025 中部赛区本身或后续分区赛逐场结果作为特征。",
+        f"- 不使用 2025 {config.region}本身或后续分区赛逐场结果作为特征。",
         "",
         "## 高置信错判",
         "",

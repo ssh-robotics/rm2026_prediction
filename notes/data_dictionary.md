@@ -23,10 +23,14 @@
   the first strict backtest.
 - `match_results_2025_central`: verified 2025 Central regional match-level fact
   table used by the second strict backtest.
+- `match_results_2025_east`: verified 2025 East regional match-level fact
+  table used by the third strict backtest.
 - `team_strength_ratings`, `model_predictions`, `model_backtests`: 2025 South
   model output tables.
 - `team_strength_ratings_2025_central`, `model_predictions_2025_central`,
   `model_backtests_2025_central`: 2025 Central model output tables.
+- `team_strength_ratings_2025_east`, `model_predictions_2025_east`,
+  `model_backtests_2025_east`: 2025 East model output tables.
 
 ## SQLite View
 
