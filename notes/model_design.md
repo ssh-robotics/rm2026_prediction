@@ -28,6 +28,7 @@ The likely first production model should be `Glicko + logistic calibration`.
   - complete-form rank
   - technical solution / project document grades
   - initial gold bonus
+  - University League 3V3 / infantry / engineering challenge results
 - Historical strength:
   - 2023-2025 national award group
   - 2023-2025 regional award group and advancement status
@@ -163,6 +164,9 @@ outcomes:
 - Raise the minimum rating uncertainty and simulation noise, so rankings near
   the qualification boundary remain probabilistic.
 - Add 2026 complete-form rank and initial-gold bonus as current-season signals.
+- Add 2026 University League results as a current-season momentum signal:
+  3V3 is weighted most heavily, infantry and engineering challenge results add
+  smaller technical-width signals.
 
 `scripts/predict_2026_region.py --region 南部赛区` writes
 `data/region_predictions_2026.csv` and

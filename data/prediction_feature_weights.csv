@@ -2,6 +2,7 @@ feature_name,baseline_weight,direction,rationale,source_id
 university_score_2025,0.22,higher_better,RoboMaster高校积分榜是跨赛事历史实力先验,model_design_internal
 complete_form_rank_2026,0.16,lower_better,赛前完整形态越靠前，机器人完成度和稳定性先验越强,model_design_internal
 initial_gold_bonus_2026,0.12,higher_better,项目文档与技术方案影响每局初始金币,model_design_internal
+rmul_total_score_2026,0.14,higher_better,高校联盟赛3V3/步兵/工程成绩代表当前赛季实战状态,model_design_internal
 national_top8_count_last_3y,0.16,higher_better,全国赛八强频次代表强队稳定性,model_design_internal
 regional_advancement_count_last_3y,0.10,higher_better,区域赛晋级频次代表下限,model_design_internal
 technical_award_count_last_3y,0.08,higher_better,机器人竞技奖/技术奖代表专项能力,model_design_internal

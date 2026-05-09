@@ -35,6 +35,8 @@ class DatabaseIntegrityTest(unittest.TestCase):
             "historical_competition_results",
             "historical_technical_awards",
             "historical_preseason_assessments",
+            "rmul_2026_awards",
+            "rmul_2026_team_features",
             "prediction_feature_weights",
             "model_backtest_plan",
             "region_predictions_2026",
@@ -78,6 +80,8 @@ class DatabaseIntegrityTest(unittest.TestCase):
             "historical_competition_results",
             "historical_technical_awards",
             "historical_preseason_assessments",
+            "rmul_2026_awards",
+            "rmul_2026_team_features",
             "prediction_feature_weights",
             "model_backtest_plan",
         ]
@@ -110,6 +114,28 @@ class DatabaseIntegrityTest(unittest.TestCase):
         self.assertEqual("1", row[0])
         self.assertGreaterEqual(int(row[1]), 1)
         self.assertGreaterEqual(int(row[2]), 1)
+
+    def test_rmul_current_season_features_load_into_team_fact_view(self) -> None:
+        self.assertGreaterEqual(
+            self.scalar("SELECT COUNT(*) FROM rmul_2026_awards"),
+            500,
+        )
+        self.assertGreaterEqual(
+            self.scalar("SELECT COUNT(*) FROM rmul_2026_team_features"),
+            300,
+        )
+        row = self.conn.execute(
+            """
+            SELECT rmul_total_score, rmul_3v3_score, rmul_best_3v3_finish
+            FROM team_fact_2026
+            WHERE school = ? AND team = ?
+            """,
+            ("武汉工程大学", "Nautilus"),
+        ).fetchone()
+        self.assertIsNotNone(row)
+        self.assertGreater(float(row[0]), 100.0)
+        self.assertGreater(float(row[1]), 100.0)
+        self.assertEqual("冠军", row[2])
 
 
 if __name__ == "__main__":

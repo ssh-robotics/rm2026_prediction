@@ -24,6 +24,8 @@ TABLES = [
     "historical_competition_results",
     "historical_technical_awards",
     "historical_preseason_assessments",
+    "rmul_2026_awards",
+    "rmul_2026_team_features",
     "prediction_feature_weights",
     "model_backtest_plan",
     "match_data_sources",
@@ -86,7 +88,14 @@ def create_views(conn: sqlite3.Connection) -> None:
             b.project_doc_bonus,
             b.total_initial_gold_bonus,
             rk.rank AS university_rank_2025,
-            rk.score AS university_score_2025
+            rk.score AS university_score_2025,
+            COALESCE(rmul.rmul_total_score, '') AS rmul_total_score,
+            COALESCE(rmul.rmul_3v3_score, '') AS rmul_3v3_score,
+            COALESCE(rmul.rmul_infantry_score, '') AS rmul_infantry_score,
+            COALESCE(rmul.rmul_engineering_score, '') AS rmul_engineering_score,
+            COALESCE(rmul.best_site, '') AS rmul_best_site,
+            COALESCE(rmul.best_3v3_finish, '') AS rmul_best_3v3_finish,
+            COALESCE(rmul.best_award, '') AS rmul_best_award
         FROM regional_teams_2026 r
         LEFT JOIN complete_form_2026 c
             ON r.school = c.school AND r.team = c.team
@@ -94,6 +103,8 @@ def create_views(conn: sqlite3.Connection) -> None:
             ON r.school = b.school AND r.team = b.team
         LEFT JOIN rmu_ranking_top_2025 rk
             ON r.school = rk.school
+        LEFT JOIN rmul_2026_team_features rmul
+            ON r.school = rmul.school AND r.team = rmul.team
         """
     )
 
@@ -194,6 +205,13 @@ def create_views(conn: sqlite3.Connection) -> None:
             tf.total_initial_gold_bonus,
             tf.university_rank_2025,
             tf.university_score_2025,
+            tf.rmul_total_score,
+            tf.rmul_3v3_score,
+            tf.rmul_infantry_score,
+            tf.rmul_engineering_score,
+            tf.rmul_best_site,
+            tf.rmul_best_3v3_finish,
+            tf.rmul_best_award,
             COALESCE(n.best_national_finish_order, '') AS best_national_finish_order,
             COALESCE(n.national_top4_count, 0) AS national_top4_count,
             COALESCE(n.national_top8_count, 0) AS national_top8_count,
@@ -238,6 +256,8 @@ def create_indexes(conn: sqlite3.Connection) -> None:
         "historical_competition_results",
         "historical_technical_awards",
         "historical_preseason_assessments",
+        "rmul_2026_awards",
+        "rmul_2026_team_features",
         "team_strength_ratings",
         "team_strength_ratings_2025_central",
     ]

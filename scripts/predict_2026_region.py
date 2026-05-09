@@ -17,7 +17,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 REPORT_DIR = ROOT / "reports"
-MODEL_RUN_ID = "rmuc_2026_region_v2_south_calibrated"
+MODEL_RUN_ID = "rmuc_2026_region_v2_rmul_calibrated"
 SOURCE_ID = "model_design_internal"
 DEFAULT_REGION = "南部赛区"
 DEFAULT_ITERATIONS = 30000
@@ -68,6 +68,14 @@ class TeamProjection:
 
 def read_csv(name: str) -> list[dict[str, str]]:
     with (DATA_DIR / name).open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def read_csv_optional(name: str) -> list[dict[str, str]]:
+    path = DATA_DIR / name
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
@@ -277,6 +285,32 @@ def build_profiles(region: str) -> list[TeamProjection]:
                 f"2026初始金币{int(initial_gold)}"
             )
 
+    for row in read_csv_optional("rmul_2026_team_features.csv"):
+        try:
+            total_score = float(row.get("rmul_total_score") or 0.0)
+        except ValueError:
+            total_score = 0.0
+        try:
+            score_3v3 = float(row.get("rmul_3v3_score") or 0.0)
+        except ValueError:
+            score_3v3 = 0.0
+        points = min(128.0, total_score * 0.72 + score_3v3 * 0.22)
+        add_points(
+            exact,
+            school_points,
+            evidence,
+            school_evidence,
+            row["school"],
+            row["team"],
+            points,
+        )
+        if points >= 40:
+            site = row.get("best_site", "")
+            finish = row.get("best_3v3_finish", "")
+            factors[key_for(row["school"], row["team"])].append(
+                f"2026高校联盟赛{site}{finish}"
+            )
+
     projections: list[TeamProjection] = []
     for row in read_csv("regional_teams_2026.csv"):
         if row["region"] != region:
@@ -409,6 +443,7 @@ def prediction_rows(projections: list[TeamProjection]) -> list[dict[str, Any]]:
                 "notes": (
                     "calibrated_from=2025_south_backtest;"
                     "v2_changes=lower_confidence_cap,higher_sigma_floor,current_complete_form;"
+                    "current_season_sources=rmul_2026_awards;"
                     "no_match_schedule_available"
                 ),
             }
@@ -428,6 +463,7 @@ def write_report(region: str, rows: list[dict[str, Any]], national_slots: int, r
         "- 全量准确率：0.696629。",
         "- 最高置信 20% 子集准确率：1.000000。",
         "- v2 优化：降低过度自信，提高低证据队伍的方差，并引入 2026 完整形态/初始金币信号。",
+        "- 当前赛季增量：加入 2026 高校联盟赛 3V3/步兵/工程挑战赛成绩，其中 3V3 权重最高。",
         "",
         "## 赛程边界",
         "",

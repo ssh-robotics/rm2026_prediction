@@ -6,7 +6,7 @@ from __future__ import annotations
 import csv
 import re
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 from bs4 import BeautifulSoup
 from openpyxl import load_workbook
@@ -21,8 +21,24 @@ RANK_ORDER = {
     "季军": 3,
     "殿军": 4,
     "八强": 8,
+    "十二强": 12,
     "十六强": 16,
     "三十二强": 32,
+}
+
+RMUL_SOURCE_ID = "rmul_2026_awards"
+RMUL_SOURCE_URL = "https://www.robomaster.com/zh-CN/resource/pages/announcement/1913"
+RMUL_AWARD_LEVELS = {"一等奖", "二等奖", "三等奖", "优秀奖"}
+RMUL_SITE_NAMES = {
+    "安徽站",
+    "上海站",
+    "东北站",
+    "华南站",
+    "山东站",
+    "江苏站",
+    "重庆站",
+    "四川站",
+    "华北站",
 }
 
 
@@ -270,6 +286,267 @@ def parse_awards_html(
     return rows
 
 
+def html_tokens(path: Path) -> list[str]:
+    soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+    return [clean(line) for line in soup.get_text("\n").splitlines() if clean(line)]
+
+
+def section_bounds(tokens: list[str], start_marker: str, end_markers: set[str]) -> tuple[int, int]:
+    start = tokens.index(start_marker)
+    end = len(tokens)
+    for index in range(start + 1, len(tokens)):
+        if tokens[index] in end_markers:
+            end = index
+            break
+    return start, end
+
+
+def skip_to_after(tokens: list[str], index: int, marker: str) -> int:
+    while index < len(tokens) and tokens[index] != marker:
+        index += 1
+    if index >= len(tokens):
+        raise ValueError(f"could not find marker {marker!r}")
+    return index + 1
+
+
+def rmul_row(
+    *,
+    contest: str,
+    site: str,
+    finish_group: str,
+    school: str,
+    team: str,
+    team_type: str,
+    award: str,
+) -> dict[str, str]:
+    return {
+        "year": "2026",
+        "competition": "RMUL",
+        "contest": contest,
+        "site": clean(site),
+        "finish_group": clean(finish_group),
+        "finish_order": str(RANK_ORDER.get(clean(finish_group), "")),
+        "school": clean(school),
+        "team": clean(team),
+        "team_type": clean(team_type),
+        "award": clean(award),
+        "source_url": RMUL_SOURCE_URL,
+        "source_id": RMUL_SOURCE_ID,
+        "notes": "official_current_season_university_league",
+    }
+
+
+def parse_rmul_ranked_section(
+    tokens: list[str],
+    start_marker: str,
+    end_markers: set[str],
+    contest: str,
+    *,
+    has_team_type: bool,
+) -> list[dict[str, str]]:
+    start, end = section_bounds(tokens, start_marker, end_markers)
+    index = skip_to_after(tokens, start, "奖项等级")
+    rows: list[dict[str, str]] = []
+    site = ""
+
+    while index < end:
+        if tokens[index] in RMUL_SITE_NAMES:
+            site = tokens[index]
+            index += 1
+        elif not site:
+            index += 1
+            continue
+
+        if index >= end:
+            break
+
+        finish_group = ""
+        if tokens[index] in RANK_ORDER:
+            finish_group = tokens[index]
+            index += 1
+
+        if has_team_type:
+            if index + 3 >= end:
+                break
+            school, team, team_type, award = tokens[index : index + 4]
+            index += 4
+        else:
+            if index + 2 >= end:
+                break
+            school, team, award = tokens[index : index + 3]
+            team_type = ""
+            index += 3
+
+        if award not in RMUL_AWARD_LEVELS:
+            continue
+        rows.append(
+            rmul_row(
+                contest=contest,
+                site=site,
+                finish_group=finish_group,
+                school=school,
+                team=team,
+                team_type=team_type,
+                award=award,
+            )
+        )
+
+    return rows
+
+
+def parse_rmul_engineering_section(tokens: list[str]) -> list[dict[str, str]]:
+    start, end = section_bounds(tokens, "三、工程挑战赛", {"联系我们"})
+    index = skip_to_after(tokens, start, "奖项等级")
+    rows: list[dict[str, str]] = []
+    site = ""
+
+    while index < end:
+        if tokens[index] in RMUL_SITE_NAMES:
+            site = tokens[index]
+            index += 1
+        elif not site:
+            index += 1
+            continue
+
+        if index + 2 >= end:
+            break
+
+        school, team, award = tokens[index : index + 3]
+        index += 3
+        if award not in RMUL_AWARD_LEVELS:
+            continue
+        rows.append(
+            rmul_row(
+                contest="工程挑战赛",
+                site=site,
+                finish_group="",
+                school=school,
+                team=team,
+                team_type="",
+                award=award,
+            )
+        )
+
+    return rows
+
+
+def parse_rmul_awards_html(path: Path) -> list[dict[str, str]]:
+    tokens = html_tokens(path)
+    rows: list[dict[str, str]] = []
+    rows.extend(
+        parse_rmul_ranked_section(
+            tokens,
+            "一、3V3对抗赛",
+            {"二、步兵对抗赛", "三、工程挑战赛"},
+            "3V3对抗赛",
+            has_team_type=True,
+        )
+    )
+    rows.extend(
+        parse_rmul_ranked_section(
+            tokens,
+            "二、步兵对抗赛",
+            {"三、工程挑战赛"},
+            "步兵对抗赛",
+            has_team_type=False,
+        )
+    )
+    rows.extend(parse_rmul_engineering_section(tokens))
+    return rows
+
+
+def rmul_award_points(award: str) -> float:
+    return {"一等奖": 20.0, "二等奖": 10.0, "三等奖": 4.0, "优秀奖": 1.0}.get(award, 0.0)
+
+
+def rmul_finish_points(finish_group: str) -> float:
+    return {
+        "冠军": 78.0,
+        "亚军": 64.0,
+        "季军": 54.0,
+        "殿军": 46.0,
+        "八强": 36.0,
+        "十二强": 28.0,
+        "十六强": 25.0,
+    }.get(finish_group, 12.0)
+
+
+def rmul_contest_weight(contest: str) -> float:
+    return {"3V3对抗赛": 1.0, "步兵对抗赛": 0.42, "工程挑战赛": 0.30}.get(contest, 0.2)
+
+
+def rmul_row_score(row: dict[str, str]) -> float:
+    score = (rmul_finish_points(row["finish_group"]) + rmul_award_points(row["award"]))
+    score *= rmul_contest_weight(row["contest"])
+    if row["contest"] == "3V3对抗赛":
+        if row["team_type"] == "甲级":
+            score *= 1.08
+        elif row["team_type"] == "非甲级":
+            score *= 0.88
+    return score
+
+
+def build_rmul_team_features(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    grouped: dict[tuple[str, str], dict[str, Any]] = {}
+
+    for row in rows:
+        key = (row["school"], row["team"])
+        score = rmul_row_score(row)
+        item = grouped.setdefault(
+            key,
+            {
+                "year": "2026",
+                "school": row["school"],
+                "team": row["team"],
+                "rmul_total_score": 0.0,
+                "rmul_3v3_score": 0.0,
+                "rmul_infantry_score": 0.0,
+                "rmul_engineering_score": 0.0,
+                "best_3v3_finish": "",
+                "best_site": "",
+                "best_award": "",
+                "source_id": RMUL_SOURCE_ID,
+                "notes": [],
+            },
+        )
+        item["rmul_total_score"] += score
+        if row["contest"] == "3V3对抗赛":
+            item["rmul_3v3_score"] += score
+            current_order = int(RANK_ORDER.get(item["best_3v3_finish"], 999))
+            row_order = int(RANK_ORDER.get(row["finish_group"], 999))
+            if row_order < current_order:
+                item["best_3v3_finish"] = row["finish_group"]
+                item["best_site"] = row["site"]
+                item["best_award"] = row["award"]
+        elif row["contest"] == "步兵对抗赛":
+            item["rmul_infantry_score"] += score
+        elif row["contest"] == "工程挑战赛":
+            item["rmul_engineering_score"] += score
+        item["notes"].append(
+            f"{row['contest']}:{row['site']}:{row['finish_group'] or row['award']}"
+        )
+
+    output: list[dict[str, str]] = []
+    for item in grouped.values():
+        output.append(
+            {
+                "year": item["year"],
+                "school": item["school"],
+                "team": item["team"],
+                "rmul_total_score": f"{item['rmul_total_score']:.3f}",
+                "rmul_3v3_score": f"{item['rmul_3v3_score']:.3f}",
+                "rmul_infantry_score": f"{item['rmul_infantry_score']:.3f}",
+                "rmul_engineering_score": f"{item['rmul_engineering_score']:.3f}",
+                "best_3v3_finish": item["best_3v3_finish"],
+                "best_site": item["best_site"],
+                "best_award": item["best_award"],
+                "source_id": item["source_id"],
+                "notes": ";".join(item["notes"][:8]),
+            }
+        )
+    return sorted(output, key=lambda row: float(row["rmul_total_score"]), reverse=True)
+
+
 def parse_2023_complete_form() -> list[dict[str, str]]:
     path = DATA_DIR / "raw_rmuc_2023_complete_form_official.html"
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
@@ -515,6 +792,7 @@ def static_prediction_feature_weights() -> list[dict[str, str]]:
         ("university_score_2025", "0.22", "higher_better", "RoboMaster高校积分榜是跨赛事历史实力先验"),
         ("complete_form_rank_2026", "0.16", "lower_better", "赛前完整形态越靠前，机器人完成度和稳定性先验越强"),
         ("initial_gold_bonus_2026", "0.12", "higher_better", "项目文档与技术方案影响每局初始金币"),
+        ("rmul_total_score_2026", "0.14", "higher_better", "高校联盟赛3V3/步兵/工程成绩代表当前赛季实战状态"),
         ("national_top8_count_last_3y", "0.16", "higher_better", "全国赛八强频次代表强队稳定性"),
         ("regional_advancement_count_last_3y", "0.10", "higher_better", "区域赛晋级频次代表下限"),
         ("technical_award_count_last_3y", "0.08", "higher_better", "机器人竞技奖/技术奖代表专项能力"),
@@ -655,6 +933,46 @@ def main() -> None:
             "project_doc_bonus",
             "technical_solution_bonus",
             "total_initial_gold_bonus",
+            "source_id",
+            "notes",
+        ],
+    )
+
+    rmul_rows = parse_rmul_awards_html(DATA_DIR / "raw_rmul_2026_awards_official.html")
+    write_csv(
+        DATA_DIR / "rmul_2026_awards.csv",
+        rmul_rows,
+        [
+            "year",
+            "competition",
+            "contest",
+            "site",
+            "finish_group",
+            "finish_order",
+            "school",
+            "team",
+            "team_type",
+            "award",
+            "source_url",
+            "source_id",
+            "notes",
+        ],
+    )
+    rmul_feature_rows = build_rmul_team_features(rmul_rows)
+    write_csv(
+        DATA_DIR / "rmul_2026_team_features.csv",
+        rmul_feature_rows,
+        [
+            "year",
+            "school",
+            "team",
+            "rmul_total_score",
+            "rmul_3v3_score",
+            "rmul_infantry_score",
+            "rmul_engineering_score",
+            "best_3v3_finish",
+            "best_site",
+            "best_award",
             "source_id",
             "notes",
         ],
@@ -817,6 +1135,8 @@ def main() -> None:
     print(f"historical_competition_results: {len(competition_rows)} rows")
     print(f"historical_technical_awards: {len(technical_rows)} rows")
     print(f"historical_preseason_assessments: {len(preseason_rows)} rows")
+    print(f"rmul_2026_awards: {len(rmul_rows)} rows")
+    print(f"rmul_2026_team_features: {len(rmul_feature_rows)} rows")
 
 
 if __name__ == "__main__":

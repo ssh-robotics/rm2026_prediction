@@ -13,6 +13,8 @@
 - `historical_competition_results`: normalized 2023-2025 national, regional, and invitational award/advancement rows.
 - `historical_technical_awards`: normalized robot competitive, tactical, technical report, and annual breakthrough awards.
 - `historical_preseason_assessments`: 2023/2024 complete-form scores, 2025 complete-form initial-gold signals, and 2026 complete-form ranks.
+- `rmul_2026_awards`: official 2026 University League 3V3, infantry, and engineering challenge award rows.
+- `rmul_2026_team_features`: team-level current-season features derived from `rmul_2026_awards`.
 - `prediction_feature_weights`: baseline feature priors for the first transparent model.
 - `model_backtest_plan`: time-based backtest splits and metrics.
 - `match_data_sources`: candidate sources for match-level pairings, scores, and winners.
@@ -28,8 +30,8 @@
 
 ## SQLite View
 
-- `team_fact_2026`: joins 2026 regional teams with complete-form rank, initial gold bonus, and 2025 university ranking where available.
-- `team_history_features_2026`: joins 2026 teams to historical national/regional/technical/preseason features.
+- `team_fact_2026`: joins 2026 regional teams with complete-form rank, initial gold bonus, 2025 university ranking, and 2026 University League features where available.
+- `team_history_features_2026`: joins 2026 teams to historical national/regional/technical/preseason features and current-season University League features.
 
 ## Data Rules
 
