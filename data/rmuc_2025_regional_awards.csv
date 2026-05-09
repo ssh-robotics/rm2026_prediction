@@ -1,0 +1,46 @@
+region,finish_group,school,team,award,qualification,source_id
+南部赛区,冠军,华南理工大学,华南虎,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,亚军,华南农业大学,Taurus,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,季军,深圳大学,RobotPilots,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,殿军,南方科技大学,ARTINX,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,八强,电子科技大学中山学院,RoboBraver,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,八强,佛山大学,醒狮,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,八强,太原理工大学,TRoMaC,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,八强,中国石油大学（华东）,RPS,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,十六强,北方工业大学,DreamTeam,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,十六强,广东工业大学,DynamicX,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,十六强,五邑大学,IMCA,一等奖,晋级全国赛,rmuc_2025_regional_awards
+南部赛区,十六强,北京理工大学（珠海）,毅恒,一等奖,晋级复活赛,rmuc_2025_regional_awards
+南部赛区,十六强,桂林信息科技学院,GIRT,一等奖,晋级复活赛,rmuc_2025_regional_awards
+南部赛区,十六强,哈尔滨工业大学（深圳）,南工骁鹰,一等奖,晋级复活赛,rmuc_2025_regional_awards
+南部赛区,十六强,华北科技学院,风暴,一等奖,晋级复活赛,rmuc_2025_regional_awards
+南部赛区,十六强,厦门大学嘉庚学院,TCR,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,冠军,中国科学技术大学,RoboWalker,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,亚军,西北工业大学,WMJ,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,季军,南京航空航天大学金城学院,Born of Fire,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,殿军,哈尔滨工业大学,I Hiter,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,八强,哈尔滨工程大学,创梦之翼,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,八强,上海交通大学,交龙,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,八强,浙江大学,Hello World,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,八强,中南大学,FYT,一等奖,晋级全国赛,rmuc_2025_regional_awards
+中部赛区,十六强,东北林业大学,Ares,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,十六强,华东理工大学,起源,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,十六强,四川大学,火锅,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,十六强,武汉工程大学,Nautilus,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,十六强,西安交通大学,笃行,一等奖,晋级复活赛,rmuc_2025_regional_awards
+中部赛区,十六强,南昌大学,Passion,一等奖,晋级复活赛,rmuc_2025_regional_awards
+东部赛区,冠军,同济大学,SuperPower,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,亚军,哈尔滨工业大学（威海）,HERO,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,季军,太原工业学院,火线,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,殿军,南京航空航天大学,长空御风,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,八强,东北大学,TDT,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,八强,山东科技大学,SmartRobot,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,八强,中国矿业大学,CUBOT,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,八强,中国石油大学（北京）,SPR,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,十六强,吉林大学,TARS_Go,一等奖,晋级全国赛,rmuc_2025_regional_awards
+东部赛区,十六强,大连理工大学,凌BUG,一等奖,晋级复活赛,rmuc_2025_regional_awards
+东部赛区,十六强,东南大学,3SE,一等奖,晋级复活赛,rmuc_2025_regional_awards
+东部赛区,十六强,华中科技大学,狼牙,一等奖,晋级复活赛,rmuc_2025_regional_awards
+东部赛区,十六强,首都师范大学,PIE,一等奖,晋级复活赛,rmuc_2025_regional_awards
+东部赛区,十六强,天津大学,北洋机甲,一等奖,晋级复活赛,rmuc_2025_regional_awards
+

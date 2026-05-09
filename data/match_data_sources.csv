@@ -1,0 +1,4 @@
+source_name,url,available_fields,coverage,collection_difficulty_1_easy_5_hard,reliability_1_low_5_high,notes,source_id
+official_live_data,https://www.robomaster.com/live/data,赛程赛果入口,2023-2026,4,5,历史结构化内容需要进一步抓取/接口解析,robomaster_live_data
+official_bilibili_replays,https://space.bilibili.com/20554233,官方逐场回放标题可抽对阵,2023-2025,2,4.5,比分多数需OCR或交叉校验,bilibili_rmuc_replays
+community_results_summary,https://bbs.robomaster.com/article/25006,非官方赛果汇总与腾讯文档,2015-2025,3,3.5,适合补winner/比分，必须保留置信度,rm_community_results_2015_2025

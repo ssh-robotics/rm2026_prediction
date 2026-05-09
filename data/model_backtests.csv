@@ -1,0 +1,2 @@
+backtest_id,model_run_id,split_name,n_matches,coverage,accuracy,accuracy_top_confidence_20pct,brier,log_loss,high_confidence_error_rate,source_id,notes
+backtest_2025_south_pre_event,rmuc_2025_south_pre_event_v1,2025_south_regional_pre_event_cutoff,89,1.000000,0.696629,1.000000,0.214928,0.623352,0.285714,model_design_internal,feature_cutoff=2025-05-15;label_source_post_event=2025-06-05;strict_no_2025_south_or_later_features;community_labels_confidence=0.78

@@ -1,0 +1,4 @@
+split_name,train_start_date,train_end_date,test_start_date,test_end_date,target_metric,primary_metrics,source_id,notes
+split_2023_to_2024,2023-01-01,2023-12-31,2024-01-01,2024-12-31,match_winner,"accuracy,brier,log_loss,accuracy_at_confidence_buckets",model_design_internal,训练2023，测试2024
+split_2023_2024_to_2025,2023-01-01,2024-12-31,2025-01-01,2025-12-31,match_winner,"accuracy,brier,log_loss,accuracy_at_confidence_buckets",model_design_internal,训练2023-2024，测试2025
+rolling_2026_regional,2023-01-01,2026-04-30,2026-05-01,2026-06-30,match_winner,"accuracy,brier,log_loss,accuracy_at_confidence_buckets",model_design_internal,2026区域赛滚动预测

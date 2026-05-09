@@ -1,0 +1,30 @@
+source_id,title,published_date,url,publisher,scope,trust_level,notes
+rmuc_2026_intro,RoboMaster 机甲大师超级对抗赛介绍,,https://www.robomaster.com/zh-CN/robo/rm,RoboMaster,2026赛季介绍/赛程/报名资格,official,区域赛2026年5-6月；复活赛和全国赛2026年7-8月
+rmuc_2026_registration,RoboMaster 2026机甲大师高校系列赛报名名单公示,2025-11-25,https://www.robomaster.com/zh-CN/resource/pages/announcement/1891,RoboMaster,2026报名名单,official,覆盖RMUC报名队伍
+rmuc_2026_season_plan,RoboMaster 2026机甲大师超级对抗赛赛季规划通过名单,2025-12-10,https://www.robomaster.com/zh-CN/resource/pages/announcement/1892,RoboMaster,赛季规划等级,official,早期备赛质量信号
+rmuc_2026_rule_test,RoboMaster 2026机甲大师超级对抗赛规则测评通过名单,2025-12-30,https://www.robomaster.com/zh-CN/resource/pages/announcement/1898,RoboMaster,规则测评通过名单,official,资格链路信号
+rmuc_2026_midterm,RoboMaster 2026机甲大师超级对抗赛中期进度文档通过名单,2026-02-11,https://www.robomaster.com/zh-CN/resource/pages/announcement/1906,RoboMaster,中期进度等级,official,机器人完成度/项目管理信号
+rmuc_2026_complete_form,RoboMaster 2026机甲大师超级对抗赛完整形态考核通过名单,2026-04-01,https://www.robomaster.com/zh-CN/resource/pages/announcement/1909,RoboMaster,完整形态展示排名与金币加成,official,区域赛前最关键技术评审信号
+rmuc_2026_pilot_test,RoboMaster 2026 机甲大师超级对抗赛飞手考核结果公示,2026-04-09,https://www.robomaster.com/zh-CN/resource/pages/announcement/1911,RoboMaster,飞手考核,official,空中机器人可起飞资格信号
+rmuc_2026_regional_teams,RoboMaster 2026机甲大师超级对抗赛区域赛参赛名单,2026-04-13,https://www.robomaster.com/zh-CN/resource/pages/announcement/1912,RoboMaster,区域赛参赛名单/晋级名额,official,当前预测主表
+rmu_2025_ranking,RoboMaster 机甲大师高校积分榜完整版（截止至2025年8月）,2025-10-21,https://www.robomaster.com/zh-CN/resource/pages/announcement/1884,RoboMaster,高校积分榜,official,历史实力基线
+rmuc_2025_regional_awards,RoboMaster 2025机甲大师超级对抗赛区域赛获奖名单,2025-06-06,https://www.robomaster.com/zh-CN/resource/pages/announcement/1847,RoboMaster,2025区域赛成绩,official,历史区域赛表现
+rmuc_2025_final_recap,RoboMaster 2025机甲大师超级对抗赛·全国赛在深圳收官,2025-08-03,https://www.stdaily.com/web/gdxw/2025-08/03/content_379832.html,科技日报,2025全国赛前四与技术亮点,media_official,补充全国赛结果和技术描述
+rmuc_2023_national_awards_html,RoboMaster 2023机甲大师超级对抗赛全国赛获奖名单,2023-08-18,https://www.robomaster.com/zh-CN/resource/pages/announcement/1617,RoboMaster,2023全国赛获奖附件页,official,页面链接官方XLSX附件
+rmuc_2023_national_awards_xlsx,RoboMaster 2023机甲大师超级对抗赛全国赛获奖名单XLSX,2023-08-18,https://terra-1-g.djicdn.com/b2a076471c6c4b72b574a977334d3e05/RM2023/RoboMaster%202023%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E8%B6%85%E7%BA%A7%E5%AF%B9%E6%8A%97%E8%B5%9B%E5%85%A8%E5%9B%BD%E8%B5%9B%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95.xlsx,RoboMaster,2023全国赛获奖名单,official_xlsx,由官方公告页链接
+rmuc_2023_regional_awards_html,RoboMaster 2023机甲大师超级对抗赛区域赛获奖名单,2023-06-30,https://www.robomaster.com/zh-CN/resource/pages/announcement/1607,RoboMaster,2023区域赛获奖附件页,official,页面链接官方XLSX附件
+rmuc_2023_regional_awards_xlsx,RoboMaster 2023机甲大师超级对抗赛区域赛获奖名单XLSX,2023-06-30,https://terra-1-g.djicdn.com/b2a076471c6c4b72b574a977334d3e05/RM2023/RoboMaster%202023%E6%9C%BA%E7%94%B2%E5%A4%A7%E5%B8%88%E8%B6%85%E7%BA%A7%E5%AF%B9%E6%8A%97%E8%B5%9B%E5%8C%BA%E5%9F%9F%E8%B5%9B%E8%8E%B7%E5%A5%96%E5%90%8D%E5%8D%95.xlsx,RoboMaster,2023区域赛获奖名单,official_xlsx,由官方公告页链接
+rmuc_2023_complete_form,RoboMaster 2023机甲大师超级对抗赛完整形态考核通过名单及分数,2023-04-25,https://www.robomaster.com/zh-CN/resource/pages/announcement/1591,RoboMaster,2023完整形态分数/初始金币,official,赛前技术完成度信号
+rmuc_2023_comprehensive_awards,第二十二届全国大学生机器人大赛获奖名单,2023-09-28,https://www.robomaster.com/zh-CN/resource/pages/announcement/1651,RoboMaster,2023综合类/技术类奖项,official,技术奖/战术奖补充信号
+rmuc_2024_regional_awards,RoboMaster 2024机甲大师超级对抗赛区域赛获奖名单,2024-06-05,https://www.robomaster.com/zh-CN/resource/pages/announcement/1736,RoboMaster,2024区域赛成绩,official,分赛区名次和晋级状态
+rmuc_2024_national_awards,RoboMaster 2024机甲大师超级对抗赛全国赛获奖名单,2024-08-22,https://www.robomaster.com/zh-CN/resource/pages/announcement/1759,RoboMaster,2024全国赛成绩,official,全国赛名次组和奖项
+rmuc_2024_robot_competitive_awards,RoboMaster 2024机甲大师超级对抗赛机器人竞技奖获奖名单,2024-08-26,https://www.robomaster.com/zh-CN/resource/pages/announcement/1761,RoboMaster,2024机器人竞技奖,official,兵种专项能力信号
+rmuc_2024_comprehensive_awards,RoboMaster 2024机甲大师高校系列赛综合类奖项获奖名单,2024-10-12,https://www.robomaster.com/zh-CN/resource/pages/announcement/1766,RoboMaster,2024综合类/技术类奖项,official,战术/技术报告/年度技术突破等信号
+rmuc_2024_complete_form_scores,RoboMaster 2024机甲大师超级对抗赛完整形态考核通过名单及分数,2024-04-13,https://www.robomaster.com/zh-CN/resource/pages/announcement/1707,RoboMaster,2024完整形态分数/初始金币,official,赛前技术完成度信号
+rmuc_2025_national_awards,RoboMaster 2025机甲大师超级对抗赛全国赛获奖名单,2025-08-08,https://www.robomaster.com/zh-CN/resource/pages/announcement/1856,RoboMaster,2025全国赛成绩,official,全国赛名次组和奖项
+rmuc_2025_comprehensive_awards,RoboMaster 2025机甲大师高校系列赛综合类奖项获奖名单,2025-09-22,https://www.robomaster.com/zh-CN/resource/pages/announcement/1880,RoboMaster,2025综合类/技术类奖项,official,战术/技术报告/年度技术突破等信号
+rmuc_2025_complete_form,RoboMaster 2025机甲大师超级对抗赛完整形态考核通过名单,2025-04-10,https://www.robomaster.com/zh-CN/resource/pages/announcement/1831,RoboMaster,2025完整形态通过名单/初始金币,official,公开初始金币但未公开总分
+robomaster_live_data,RoboMaster赛事直播赛程赛果页,,https://www.robomaster.com/live/data,RoboMaster,逐场赛程赛果入口,official,后续采集match-level数据优先入口
+bilibili_rmuc_replays,RoboMaster官方B站逐场回放,,https://space.bilibili.com/20554233,RoboMaster,逐场视频回放/标题对阵,official_media,可半自动抽取对阵并OCR比分
+rm_community_results_2015_2025,RoboMaster 2015-2025 赛果资料汇总,,https://bbs.robomaster.com/article/25006,RoboMaster社区,非官方赛果汇总,community,可补winner/比分但必须保留置信度
+model_design_internal,Local RoboMaster prediction model design,2026-05-09,notes/model_design.md,local,预测模型设计/权重/回测计划,internal,本地研究假设，需通过回测校准
