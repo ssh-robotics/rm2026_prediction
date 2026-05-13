@@ -31,6 +31,19 @@
   `model_backtests_2025_central`: 2025 Central model output tables.
 - `team_strength_ratings_2025_east`, `model_predictions_2025_east`,
   `model_backtests_2025_east`: 2025 East model output tables.
+- `model_predictions_2026_south_day1`: 2026 South Day 1 strict pre-match
+  prediction snapshot.
+- `live_match_events_2026_south_after16`: official results for the first 16
+  2026 South Day 1 matches, joined with the pre-match prediction correctness.
+- `live_robot_key_stats_2026_south_after16`: official robot-level live data
+  aggregated into team-level combat, economy, dart, radar, and robot signal
+  features after the first 16 matches.
+- `live_team_ratings_2026_south_after16`: rolling ratings after ingesting the
+  first 16 results and robot/key group statistics.
+- `live_model_predictions_2026_south_after16`: rolling predictions for the next
+  known matches after the first 16 results.
+- `live_model_backtests_2026_south_after16`: evaluation of the Day 1 strict
+  pre-match predictions against the first 16 official results.
 
 ## SQLite View
 

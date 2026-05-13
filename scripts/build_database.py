@@ -46,6 +46,12 @@ OPTIONAL_TABLES = [
     "team_strength_ratings_2025_east",
     "model_predictions_2025_east",
     "model_backtests_2025_east",
+    "model_predictions_2026_south_day1",
+    "live_match_events_2026_south_after16",
+    "live_robot_key_stats_2026_south_after16",
+    "live_team_ratings_2026_south_after16",
+    "live_model_predictions_2026_south_after16",
+    "live_model_backtests_2026_south_after16",
 ]
 
 

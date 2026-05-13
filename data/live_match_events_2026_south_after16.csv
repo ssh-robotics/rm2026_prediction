@@ -1,0 +1,17 @@
+match_id,event,zone,match_time_cst,group_name,red_team,blue_team,red_game_wins,blue_game_wins,winner,pre_predicted_winner,pre_confidence,pre_upset_risk_index,correct,source_id,notes
+30900,RMUC 2026超级对抗赛,南部赛区,2026-05-13 08:10,A,华南农业大学 Taurus,重庆理工大学 士继DREAMER,1,2,重庆理工大学 士继DREAMER,华南农业大学 Taurus,0.879,0.286,0,official_live_schedule_json,official_result=BLUE;pre_p_red=0.879;live_rating_delta=-74.715
+30901,RMUC 2026超级对抗赛,南部赛区,2026-05-13 08:45,A,国防科技大学 军临,厦门大学嘉庚学院 TCR,0,2,厦门大学嘉庚学院 TCR,国防科技大学 军临,0.555,0.473,0,official_live_schedule_json,official_result=BLUE;pre_p_red=0.555;live_rating_delta=-56.610
+30902,RMUC 2026超级对抗赛,南部赛区,2026-05-13 09:50,A,仲恺农业工程学院 奇点,华南理工大学 华南虎,2,1,仲恺农业工程学院 奇点,华南理工大学 华南虎,0.883,0.261,0,official_live_schedule_json,official_result=RED;pre_p_red=0.117;live_rating_delta=75.055
+30903,RMUC 2026超级对抗赛,南部赛区,2026-05-13 10:25,A,武汉大学 珞珈狐,桂林信息科技学院 GIRT,1,2,桂林信息科技学院 GIRT,桂林信息科技学院 GIRT,0.867,0.352,1,official_live_schedule_json,official_result=BLUE;pre_p_red=0.133;live_rating_delta=-11.305
+30904,RMUC 2026超级对抗赛,南部赛区,2026-05-13 11:00,A,电子科技大学中山学院 RoboBraver,长沙理工大学 云嵌,2,0,电子科技大学中山学院 RoboBraver,电子科技大学中山学院 RoboBraver,0.870,0.335,1,official_live_schedule_json,official_result=RED;pre_p_red=0.870;live_rating_delta=13.260
+30905,RMUC 2026超级对抗赛,南部赛区,2026-05-13 11:35,A,武汉工程大学 Nautilus,华南师范大学（佛山校区） VANGUARD,0,2,华南师范大学（佛山校区） VANGUARD,武汉工程大学 Nautilus,0.867,0.349,0,official_live_schedule_json,official_result=BLUE;pre_p_red=0.867;live_rating_delta=-88.434
+30906,RMUC 2026超级对抗赛,南部赛区,2026-05-13 13:10,A,广州航海学院 ICBK破冰船,上海交通大学 交龙,0,2,上海交通大学 交龙,上海交通大学 交龙,0.875,0.307,1,official_live_schedule_json,official_result=BLUE;pre_p_red=0.125;live_rating_delta=-12.750
+30907,RMUC 2026超级对抗赛,南部赛区,2026-05-13 13:45,A,厦门理工学院 PFA,桂林电子科技大学 Evolution,0,2,桂林电子科技大学 Evolution,桂林电子科技大学 Evolution,0.875,0.307,1,official_live_schedule_json,official_result=BLUE;pre_p_red=0.125;live_rating_delta=-12.750
+30908,RMUC 2026超级对抗赛,南部赛区,2026-05-13 14:20,B,桂林理工大学 群星,太原理工大学 TRoMaC,2,0,桂林理工大学 群星,太原理工大学 TRoMaC,0.880,0.278,0,official_live_schedule_json,official_result=RED;pre_p_red=0.120;live_rating_delta=89.760
+30909,RMUC 2026超级对抗赛,南部赛区,2026-05-13 14:55,B,东莞理工学院 ACE,华中科技大学 狼牙,2,0,东莞理工学院 ACE,华中科技大学 狼牙,0.596,0.459,0,official_live_schedule_json,official_result=RED;pre_p_red=0.404;live_rating_delta=60.792
+30910,RMUC 2026超级对抗赛,南部赛区,2026-05-13 15:30,B,五邑大学 IMCA,深圳技术大学 悍匠,2,0,五邑大学 IMCA,五邑大学 IMCA,0.872,0.322,1,official_live_schedule_json,official_result=RED;pre_p_red=0.872;live_rating_delta=13.056
+30911,RMUC 2026超级对抗赛,南部赛区,2026-05-13 16:05,B,广州城市理工学院 野狼,湘潭大学 逐曦,2,0,广州城市理工学院 野狼,广州城市理工学院 野狼,0.876,0.302,1,official_live_schedule_json,official_result=RED;pre_p_red=0.876;live_rating_delta=12.648
+30912,RMUC 2026超级对抗赛,南部赛区,2026-05-13 16:40,B,武汉科技大学 崇实,深圳大学 RobotPilots,0,2,深圳大学 RobotPilots,深圳大学 RobotPilots,0.873,0.318,1,official_live_schedule_json,official_result=BLUE;pre_p_red=0.127;live_rating_delta=-12.954
+30913,RMUC 2026超级对抗赛,南部赛区,2026-05-13 17:15,B,南华大学 MA,南昌大学 Passion,2,0,南华大学 MA,南昌大学 Passion,0.877,0.297,0,official_live_schedule_json,official_result=RED;pre_p_red=0.123;live_rating_delta=89.454
+30914,RMUC 2026超级对抗赛,南部赛区,2026-05-13 17:50,B,广东工业大学 DynamicX,西交利物浦大学 GMaster,2,0,广东工业大学 DynamicX,广东工业大学 DynamicX,0.871,0.328,1,official_live_schedule_json,official_result=RED;pre_p_red=0.871;live_rating_delta=13.158
+30915,RMUC 2026超级对抗赛,南部赛区,2026-05-13 18:25,B,中南大学 FYT,厦门大学 RCS,2,1,中南大学 FYT,中南大学 FYT,0.881,0.270,1,official_live_schedule_json,official_result=RED;pre_p_red=0.881;live_rating_delta=10.115

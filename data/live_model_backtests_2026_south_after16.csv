@@ -1,0 +1,2 @@
+backtest_id,model_run_id,split_name,n_matches,coverage,accuracy,accuracy_top_confidence_20pct,brier,log_loss,high_confidence_error_rate,source_id,notes
+backtest_2026_south_day1_after16_pre_match,rmuc_2026_south_day1_pre_match_v1,2026_south_day1_first_16_pre_match,16,1.000000,0.562500,0.333333,0.290957,0.839115,0.357143,official_live_schedule_json,evaluated_after_first_16_matches;high_confidence_count=14

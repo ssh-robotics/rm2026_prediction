@@ -26,6 +26,8 @@ rmuc_2025_national_awards,RoboMaster 2025机甲大师超级对抗赛全国赛获
 rmuc_2025_comprehensive_awards,RoboMaster 2025机甲大师高校系列赛综合类奖项获奖名单,2025-09-22,https://www.robomaster.com/zh-CN/resource/pages/announcement/1880,RoboMaster,2025综合类/技术类奖项,official,战术/技术报告/年度技术突破等信号
 rmuc_2025_complete_form,RoboMaster 2025机甲大师超级对抗赛完整形态考核通过名单,2025-04-10,https://www.robomaster.com/zh-CN/resource/pages/announcement/1831,RoboMaster,2025完整形态通过名单/初始金币,official,公开初始金币但未公开总分
 robomaster_live_data,RoboMaster赛事直播赛程赛果页,,https://www.robomaster.com/live/data,RoboMaster,逐场赛程赛果入口,official,后续采集match-level数据优先入口
+official_live_schedule_json,RoboMaster官方直播赛程赛果JSON,,https://rm-static.djicdn.com/live_json/schedule.json,RoboMaster,逐场赛程/比分/胜负/滚动签位,official,2026南部赛区赛中滚动预测主赛果源
+official_live_robot_data_json,RoboMaster官方直播机器人数据JSON,,https://rm-static.djicdn.com/live_json/robot_data.json,RoboMaster,机器人命中率/伤害/击杀/工程/飞镖/雷达数据,official,2026南部赛区赛中滚动关键机器人数据源
 bilibili_rmuc_replays,RoboMaster官方B站逐场回放,,https://space.bilibili.com/20554233,RoboMaster,逐场视频回放/标题对阵,official_media,可半自动抽取对阵并OCR比分
 rm_community_results_2015_2025,RoboMaster 2015-2025 赛果资料汇总,,https://bbs.robomaster.com/article/25006,RoboMaster社区,非官方赛果汇总,community,可补winner/比分但必须保留置信度
 model_design_internal,Local RoboMaster prediction model design,2026-05-09,notes/model_design.md,local,预测模型设计/权重/回测计划,internal,本地研究假设，需通过回测校准
